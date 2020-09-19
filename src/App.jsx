@@ -63,23 +63,24 @@ class App extends Component {
           </p>
         );
         if (this.state.renderIndex) {
-      performanceDataIndex = (
-        <>
-        <DisplayPerformanceData
-        updateIndex={this.state.updateIndex}
-        indexUpdated={() => this.setState({ updateIndex: flase})}
-        />
-        <button onClick={() => this.setState({ renderIndex: false })}>Hide past entries</button>
-        </>
-      ) 
-    } else {
-      performanceDataIndex = (
-        <button id="show-index" onClick={() => this.setState({ renderIndex: true})}>Show past entries</button>
-      )
-    }
-      break;
-    }
-
+          performanceDataIndex = (
+            <>
+              <DisplayPerformanceData
+                updateIndex={this.state.updateIndex}
+                indexUpdated={() => this.setState({ updateIndex: false})}
+              />
+              <button onClick={() => this.setState({ renderIndex: false })}>Hide past entries</button>
+            </>
+          );
+        } else {
+          performanceDataIndex = (
+            <button id="show-index" onClick={() => this.setState({ renderIndex: true})}>Show past entries</button>
+          );
+        }
+        break;
+        default:
+          break;
+      };
 
     const renderLogin = this.state.renderLoginForm ? (
       <LoginForm submitFormHandler={this.onLogin} />

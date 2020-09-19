@@ -33,4 +33,3 @@ describe('User attempts to view his/her performance data', () => {
     })
   })
 })
-
