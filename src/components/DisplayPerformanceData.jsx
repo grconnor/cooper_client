@@ -25,24 +25,39 @@ class DisplayPerformanceData extends Component {
   }
 
   render () {
-    let dataIndex;
+    let graph;
+    let distances = [];
+    let labels = [];
 
-    if (this.state.performanceData != null) {
-      dataIndex = (
-        <div>
-          {this.state.performanceData.map(item => {
-            return <div key={item.id}>{item.data.message}</div>
-          })}
-        </div>
-      )
-    }
+if (this.state.performanceData) {
+  this.state.performanceData.forEach(entry => {
+    distances.push(entry.data.distance)
+    labels.push(entry.data.message)
+  })
+
+  const data = {
+    datasets: [{
+      data: distances,
+      label: "Saved distances"
+    }],
+    labels: labels
+  }
+
+  graph = (
+    <>
+      <Line
+      data={data}
+      />
+    </>
+  )
+}
 
     return (
       <div>
-        {dataIndex}
+        {graph}
       </div>
     );
   }      
 }
 
-export default DisplayPerformanceData
+export default DisplayPerformanceData;

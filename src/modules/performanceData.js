@@ -8,6 +8,7 @@ const saveData = async (result, entryHandler) => {
     "Content-type": "application/json",
     Accept: "application/json"
   };
+  
   try {
     await axios.post("/performance_data", 
       { 
@@ -39,4 +40,4 @@ const getData = async () => {
   return response;
 };
 
-export { getData, saveData }
+export { getData, saveData };
