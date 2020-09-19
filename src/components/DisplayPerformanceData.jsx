@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import { saveData } from "../modules/performanceData";
+import { Line } from 'react-chartjs-2'
 
 class DisplayPerformanceData extends Component {
   state = {
     performanceData: null
-  }
+  };
 
   componentDidMount() {
-    this.getPerformanceData()
+    this.getPerformanceData();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.updateIndex != prevProps.updateIndex) {
-      this.getPerformanceData()
+      this.getPerformanceData();
     }
   }
 
   async getPerformanceData() {
     let result = await getData();
-    this.setState({performanceData: result.data.entries}, () => {
+    this.setState({ performanceData: result.data.entries }, () => {
       this.props.indexUpdated();
-    })
+    });
   }
 
   render () {
@@ -40,7 +41,7 @@ class DisplayPerformanceData extends Component {
       <div>
         {dataIndex}
       </div>
-    )
+    );
   }      
 }
 

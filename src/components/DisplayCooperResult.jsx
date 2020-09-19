@@ -1,6 +1,6 @@
 import React from "react";
 import cooperCalculator from "../modules/cooperCalculator";
-import { saveData } from "../modules/performanceData";
+import saveData from "../modules/performanceData";
 
 const DisplayCooperResult = ({
   distance,
@@ -24,8 +24,9 @@ const DisplayCooperResult = ({
           <p id="cooper-result">Result: {result}</p>
           {authenticated && !entrySaved ? (
             <button
-            id="save-result"
-            onClick={() => saveData(result, entryHandler)}>
+              id="save-result"
+              onClick={() => saveData(result, entryHandler)}>
+            >
               Save entry
             </button>
           ) : (
@@ -35,10 +36,6 @@ const DisplayCooperResult = ({
       )}
     </>
   );
-};
-
-
-
-  
+}
 
 export default DisplayCooperResult;

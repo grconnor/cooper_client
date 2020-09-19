@@ -35,6 +35,7 @@ class App extends Component {
   };
 
   render() {
+    let performanceDataIndex;
     const { renderLoginForm, authenticated, message } = this.state;
     let renderLogin;
     switch (true) {
