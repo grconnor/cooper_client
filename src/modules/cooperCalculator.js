@@ -7,7 +7,7 @@ const CooperCalculator = (distance, gender, age) => {
     "Poor"
   ];
 
-  const cooperTabel = {
+  const cooperTable = {
     female: {
       "13-14": [">2000", "1900-1999", "1600-1899", "1500-1599", "<1500"],
       "15-16": [">2100", "2000-2099", "1700-1999", "1600-1699", "<1600"],
@@ -28,7 +28,7 @@ const CooperCalculator = (distance, gender, age) => {
     }
   };
 
-  const ageRangeTabel = age => {
+  const ageRangeTabll = age => {
     switch (true) {
       case age >= 13 && age <= 14:
         return "13-14";
@@ -49,13 +49,13 @@ const CooperCalculator = (distance, gender, age) => {
     }
   };
 
-  const ageRange = ageRangeTabel(parseInt(age));
+  const ageRange = ageRangeTable(parseInt(age));
 
   if (ageRange === "invalid range") {
     return "Invalid age range";
   }
 
-  const distanceRanges = cooperTabel[gender.toLowerCase()][ageRange];
+  const distanceRanges = cooperTable[gender.toLowerCase()][ageRange];
 
   let ratingIndex;
 
