@@ -28,7 +28,7 @@ const CooperCalculator = (distance, gender, age) => {
     }
   };
 
-  const ageRangeTabll = age => {
+  const ageRangeTable = age => {
     switch (true) {
       case age >= 13 && age <= 14:
         return "13-14";
